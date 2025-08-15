@@ -22,11 +22,6 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
-numSize := 10
-symSize := 3
-nameSize := 7
-massSize := 10
-
 type SourceRoot struct {
 	Elements []struct {
 		Number     int     `json:"number"`
@@ -150,6 +145,12 @@ func drawText(img *image.RGBA, face font.Face, x, y int, txt string, col color.C
 }
 
 func main() {
+	// Settings
+	const numSize float64 = 10
+	const symSize float64 = 3
+	const nameSize float64 = 7
+	const massSize float64 = 10
+
 	fontPath := flag.String("font", "font.ttf", "path to .ttf font file")
 	coloursPath := flag.String("colours", "colours.json", "path to colours.json")
 	outdir := flag.String("outdir", "elements", "output directory")
@@ -180,10 +181,10 @@ func main() {
 	}
 
 	// Load font faces of different sizes
-	numFont, _ := loadFont(*fontPath, float64(tileH)/10)   // ~large enough
-	symFont, _ := loadFont(*fontPath, float64(tileH)/3)    // biggest
-	nameFont, _ := loadFont(*fontPath, float64(tileH)/7)  // medium
-	massFont, _ := loadFont(*fontPath, float64(tileH)/10)  // smallest
+	numFont, _ := loadFont(*fontPath, float64(tileH)/numSize)   // ~large enough
+	symFont, _ := loadFont(*fontPath, float64(tileH)/symSize)    // biggest
+	nameFont, _ := loadFont(*fontPath, float64(tileH)/nameSize)  // medium
+	massFont, _ := loadFont(*fontPath, float64(tileH)/massSize)  // smallest
 
 	// Fetch element data
 	elements, err := fetchElements()
