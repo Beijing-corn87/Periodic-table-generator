@@ -22,6 +22,11 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
+numSize := 10
+symSize := 3
+nameSize := 7
+massSize := 10
+
 type SourceRoot struct {
 	Elements []struct {
 		Number     int     `json:"number"`
