@@ -1,0 +1,1 @@
+go run main.go   -font Roboto.ttf   -colours colours.json   -outdir elements   -height 600
