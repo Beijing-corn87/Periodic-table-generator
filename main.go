@@ -175,10 +175,10 @@ func main() {
 	}
 
 	// Load font faces of different sizes
-	numFont, _ := loadFont(*fontPath, float64(tileH)/18)   // ~large enough
-	symFont, _ := loadFont(*fontPath, float64(tileH)/6)    // biggest
-	nameFont, _ := loadFont(*fontPath, float64(tileH)/20)  // medium
-	massFont, _ := loadFont(*fontPath, float64(tileH)/24)  // smallest
+	numFont, _ := loadFont(*fontPath, float64(tileH)/10)   // ~large enough
+	symFont, _ := loadFont(*fontPath, float64(tileH)/3)    // biggest
+	nameFont, _ := loadFont(*fontPath, float64(tileH)/7)  // medium
+	massFont, _ := loadFont(*fontPath, float64(tileH)/10)  // smallest
 
 	// Fetch element data
 	elements, err := fetchElements()
