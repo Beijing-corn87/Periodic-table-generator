@@ -22,6 +22,12 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
+// Settings
+const numSize = 8.8
+const symSize = 2.5
+const nameSize = 6.5
+const massSize = 8.8
+
 type SourceRoot struct {
 	Elements []struct {
 		Number     int     `json:"number"`
@@ -145,11 +151,6 @@ func drawText(img *image.RGBA, face font.Face, x, y int, txt string, col color.C
 }
 
 func main() {
-	// Settings
-	const numSize float64 = 10
-	const symSize float64 = 3
-	const nameSize float64 = 7
-	const massSize float64 = 10
 
 	fontPath := flag.String("font", "font.ttf", "path to .ttf font file")
 	coloursPath := flag.String("colours", "colours.json", "path to colours.json")
