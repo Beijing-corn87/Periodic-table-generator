@@ -108,18 +108,22 @@ func main() {
 		// Symbol (Center)
 		c.SetFontSize(180)
 		centerPointSymbol := fixed.Point26_6{X: fixed.I(imgWidth / 2), Y: fixed.I(imgHeight/2 + 30)}
-		drawCenteredText(c, el.Symbol, centerPointSymbol)
+		drawCenteredText(c, el.Symbol, centerPointSymbol, f, 180)
 
 		// Name (Below Symbol)
 		c.SetFontSize(40)
-		centerPointName := fixed.Point26_6{X: fixed.I(imgWidth / 2), Y: fixed.I(int(float64(imgHeight)*0.75 + 20))}
-		drawCenteredText(c, el.Name, centerPointName)
+		yPosNameFloat := float64(imgHeight)*0.75 + 20
+		yPosName := int(yPosNameFloat)
+		centerPointName := fixed.Point26_6{X: fixed.I(imgWidth / 2), Y: fixed.I(yPosName)}
+		drawCenteredText(c, el.Name, centerPointName, f, 40)
 
 		// Atomic Mass (Bottom Center)
 		c.SetFontSize(28)
 		massStr := fmt.Sprintf("%.3f", el.AtomicMass)
-		centerPointMass := fixed.Point26_6{X: fixed.I(imgWidth / 2), Y: fixed.I(int(float64(imgHeight)*0.88 + 20))}
-		drawCenteredText(c, massStr, centerPointMass)
+		yPosMassFloat := float64(imgHeight)*0.88 + 20
+		yPosMass := int(yPosMassFloat)
+		centerPointMass := fixed.Point26_6{X: fixed.I(imgWidth / 2), Y: fixed.I(yPosMass)}
+		drawCenteredText(c, massStr, centerPointMass, f, 28)
 
 		// --- Save the image to a file ---
 		filename := fmt.Sprintf("%03d-%s.png", el.AtomicNumber, el.Name)
@@ -143,10 +147,16 @@ func main() {
 // --- Helper Functions ---
 
 // drawCenteredText measures a string and draws it so its center is at the given point.
-func drawCenteredText(c *freetype.Context, text string, pt fixed.Point26_6) {
-	// Measure the text
-	face := truetype.NewFace(c.Font(), &truetype.Options{Size: c.FontSize(), DPI: c.DPI(), Hinting: font.HintingFull})
-	width, _ := font.MeasureString(face, text)
+func drawCenteredText(c *freetype.Context, text string, pt fixed.Point26_6, f *truetype.Font, size float64) {
+	// Create a new face for measuring text
+	face := truetype.NewFace(f, &truetype.Options{
+		Size:    size,
+		DPI:     72, // Use a standard DPI
+		Hinting: font.HintingFull,
+	})
+
+	drawer := &font.Drawer{Face: face}
+	width := drawer.MeasureString(text)
 	pt.X -= width / 2
 
 	// Draw the text
