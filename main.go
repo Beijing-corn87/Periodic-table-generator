@@ -225,11 +225,11 @@ func main() {
 
 		// Symbol (center)
 		symW := font.MeasureString(symFont, e.Symbol).Round()
-		drawText(img, symFont, (tileW-symW)/2, tileH/2, e.Symbol, color.Black)
+		drawText(img, symFont, (tileW-symW)/2, tileH/2+int(symFont.Metrics().Height.Round())/4, e.Symbol, color.Black)
 
 		// Name (below symbol)
 		nameW := font.MeasureString(nameFont, e.Name).Round()
-		drawText(img, nameFont, (tileW-nameW)/2, tileH/2+int(nameFont.Metrics().Height.Round())+pad, e.Name, color.Black)
+		drawText(img, nameFont, (tileW-nameW)/2, tileH/2+int(symFont.Metrics().Height.Round())/4+int(nameFont.Metrics().Height.Round())+pad, e.Name, color.Black)
 
 		// Save PNG
 		fname := fmt.Sprintf("%03d_%s.png", e.Number, e.Symbol)
