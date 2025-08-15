@@ -1,7 +1,0 @@
-run cmd
-go run main.go \
-  -font Roboto.ttf \
-  -sample Untitled.png \
-  -colours colours.json \
-  -outdir elements \
-  -height 600
