@@ -1,3 +1,7 @@
-# command-line-arguments
-./main.go:115:19: cannot convert float64(imgHeight) * 0.75 (constant 1411.5 of type float64) to type int
-./main.go:122:19: cannot convert float64(imgHeight) * 0.88 (constant 1656.16 of type float64) to type int
+run cmd
+go run main.go \
+  -font Roboto.ttf \
+  -sample Untitled.png \
+  -colours colours.json \
+  -outdir elements \
+  -height 600

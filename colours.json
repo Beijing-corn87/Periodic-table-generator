@@ -1,0 +1,13 @@
+{
+  "alkali metal":"#E74C3C",
+  "alkaline earth metal":"#E67E22",
+  "transition metal":"#F1C40F",
+  "post-transition metal":"#2ECC71",
+  "metalloid":"#1ABC9C",
+  "nonmetal":"#3498DB",
+  "halogen":"#9B59B6",
+  "noble gas":"#34495E",
+  "lanthanide":"#16A085",
+  "actinide":"#8E44AD",
+  "unknown":"#7F8C8D"
+  }
