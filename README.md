@@ -21,10 +21,10 @@ You will need to specify a font file for this to work
    #### Flags you need to set:
    |  Flags   |                             Description                               |        Example        |
    | -------- | --------------------------------------------------------------------- | --------------------- |
-   | -font    | Sets the font file you will use                                       | -font Roboto-Bold.ttf |
-   | -colours | Sets the .json file for colours                                       | -colours colours.json |
-   | -outdir  | Sets the output for the images                                        | -outdir elements      |
-   | -height  | Sets the height of the output image (will calculate width acordingly) | -height 600           |
+   | ``-font``    | Sets the font file you will use                                       | -font Roboto-Bold.ttf |
+   | ``-colours`` | Sets the .json file for colours                                       | -colours colours.json |
+   | ``-outdir``  | Sets the output for the images                                        | -outdir elements      |
+   | ``-height``  | Sets the height of the output image (will calculate width acordingly) | -height 600           |
 
    Your command will look somthing like this:
    ```bash
