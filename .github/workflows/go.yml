@@ -131,6 +131,8 @@ jobs:
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
+        with:
+          path: release_artifacts # Download all artifacts into a single directory
 
       - name: Create release
         uses: ncipollo/release-action@v1
@@ -147,5 +149,5 @@ jobs:
             - Windows ARM64
             - macOS x64
             - macOS ARM64
-          artifacts: "linux-x64,linux-arm64,windows-x64.exe,windows-arm64.exe,macos-x64,macos-arm64"
+          artifacts: "release_artifacts/linux-x64,release_artifacts/linux-arm64,release_artifacts/windows-x64.exe,release_artifacts/windows-arm64.exe,release_artifacts/macos-x64,release_artifacts/macos-arm64"
           token: ${{ secrets.GITHUB_TOKEN }}
