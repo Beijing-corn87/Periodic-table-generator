@@ -137,3 +137,10 @@ jobs:
       with:
         name: macos-arm64
         path: /Users/runner/work/macos-arm64
+
+  release:
+    needs: [build-linux-x64, build-linux-arm64, build-windows-x64, build-windows-arm64, build-macos-x64, build-macos-arm64]
+    runs-on: ubuntu-latest
+    steps:
+      - name: All builds complete
+        run: echo "All builds have been successfully completed and their artifacts are ready."
