@@ -27,8 +27,5 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-    - name: Upload artifact
-    - uses: actions/upload-artifact@v4.6.2
-      with:
-        name: linux_x64
-        path: linux_x64
+    - name: lsdir
+      run: pwd
