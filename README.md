@@ -32,4 +32,4 @@ You will need to specify a font file for this to work
    ```
 
 ### Run Binary
-download it
+Download the latest relese from the [releses page](https://github.com/Beijing-corn87/Periodic-table-generator/releases/latest)
