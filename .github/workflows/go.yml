@@ -144,3 +144,20 @@ jobs:
     steps:
       - name: Downlad all artifacts
         uses: actions/download-artifact@v5.0.0
+        
+      - name: Create relese
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "linux-x64,linux-arm64,windows-x64.exe,windows-arm64.exe,macos-x64,macos-arm64"
+          body: |
+            ## Release Notes for ${{ github.ref_name }}
+            
+            This release includes the following binaries:
+            - Linux x64
+            - Linux ARM64
+            - Windows x64
+            - Windows ARM64
+            - macOS x64
+            - macOS ARM64
+          generateReleaseNotes: true
+          tag: "V1.1.0"
