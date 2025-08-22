@@ -32,4 +32,4 @@ You will need to specify a font file for this to work
    ```
 
 ### Run Binary
-**TBD (or not )**
+download it

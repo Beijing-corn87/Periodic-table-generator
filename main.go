@@ -152,7 +152,7 @@ func drawText(img *image.RGBA, face font.Face, x, y int, txt string, col color.C
 
 func main() {
 
-	fontPath := flag.String("font", "font.ttf", "path to .ttf font file")
+	fontPath := flag.String("font", "Stuff.ttf", "path to .ttf font file")
 	coloursPath := flag.String("colours", "colours.json", "path to colours.json")
 	outdir := flag.String("outdir", "elements", "output directory")
 	height := flag.Int("height", 600, "tile image height in px (width scales to aspect ratio)")
