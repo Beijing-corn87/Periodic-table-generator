@@ -1,0 +1,36 @@
+name: Deploy Redirect to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate redirect index.html
+        run: |
+          mkdir -p site
+          cat <<EOF > site/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta http-equiv="refresh" content="0; url=https://github.com/${{ github.repository }}" />
+              <title>Redirecting...</title>
+          </head>
+          <body>
+              <p>Redirecting to <a href="https://github.com/${{ github.repository }}">https://github.com/${{ github.repository }}</a></p>
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
